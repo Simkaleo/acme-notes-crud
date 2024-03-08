@@ -2,6 +2,7 @@ const pg = require("pg");
 const client = new pg.Client(
   process.env.DATABASE_URL || "postgres://localhost/acme_notes_crud_db"
 );
+const express = require("express");
 
 const init = async () => {
   console.log("connecting to database");
@@ -23,7 +24,7 @@ const init = async () => {
   // );
 
   await client.query(SQL);
-  console.log(`tables created`);
+  console.log(`data seeded`);
 };
 
 init();
